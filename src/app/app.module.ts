@@ -4,6 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+
+
+const fbConfig = {
+
+};
+
+const fbAuthConfig  = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect
+}
 
 @NgModule({
   declarations: [
@@ -12,7 +23,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(fbConfig, fbAuthConfig )
   ],
   providers: [],
   bootstrap: [AppComponent]
