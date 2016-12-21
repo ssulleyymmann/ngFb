@@ -1,13 +1,18 @@
 <h1>
   {{title}}
 </h1>
-
+    <md-card>
+    <md-card-title-group>
+        <md-card-title>Card with title</md-card-title>
+        <md-card-subtitle>Subtitle</md-card-subtitle>
+        <img md-card-md-image>
+    </md-card-title-group>
+  </md-card>
   <ul>
     <li *ngFor="let item of items | async">
     {{item|json}}  {{ item.$value}}
     </li>
   </ul>
-
 
  <div> {{ (af.auth | async)?.uid }} </div>
   <button (click)="login()">Login</button>
