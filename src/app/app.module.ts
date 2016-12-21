@@ -5,10 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { TasksModule } from '../tasks/index';
+import { RouterModule } from '@angular/router';
+
+
 
 
 const fbConfig = {
-
+ 
 };
 
 const fbAuthConfig  = {
@@ -18,13 +22,15 @@ const fbAuthConfig  = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,  
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(fbConfig, fbAuthConfig )
+    RouterModule.forRoot([], {useHash: false}),
+    AngularFireModule.initializeApp(fbConfig, fbAuthConfig ),
+    TasksModule
   ],
   providers: [],
   bootstrap: [AppComponent]

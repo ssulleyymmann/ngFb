@@ -15,13 +15,16 @@ export class AppComponent {
   }
   login() {
     this.af.auth.login();
-    
-  }
-  getData(){
-    this.items = this.af.database.list('/items');
-    console.log("********",this.items);
-  }
 
+  }
+  getData() {
+    this.items = this.af.database.list('/items');
+    console.log("********", this.items);
+  }
+  setData() {
+    this.items = this.af.database.list('/items');
+    this.items.push("4200")
+  }
   logout() {
     this.af.auth.logout();
   }

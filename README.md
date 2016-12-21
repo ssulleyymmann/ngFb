@@ -1,5 +1,9 @@
 # Ngfb3
 
+git add --a .
+git commit -m "commit desc"
+git push -u origin master
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
 
 ## Development server
