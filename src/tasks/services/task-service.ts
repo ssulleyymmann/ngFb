@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-//import { AuthService } from '../../auth';
+import { AuthService } from '../../auth';
 import { ITask, Task } from '../models/task';
+//import { AuthService } from '../../auth/services/auth-service';
 
 
 @Injectable()
@@ -18,19 +19,19 @@ export class TaskService {
   private tasks$: FirebaseListObservable<ITask[]>;
 
 
-  constructor(af: AngularFire) {//, auth: AuthService) {
-    //const path = `/tasks/${auth.id}`;
-    const path = `/tasks/`;
+  constructor(af: AngularFire, auth: AuthService) {
+    const path = `/tasks/${auth.id}`;
+    //const path = `/tasks/`;
     this.tasks$ = af.database.list(path);
     
-    this.filteredTasks$ = af.database.list(path);
+   // this.filteredTasks$ = af.database.list(path);
 
-    // this.filteredTasks$ = af.database.list(path, {
-    //   query: {
-    //     orderByChild: 'completed',
-    //     equalTo: this.filter$
-    //   }
-    // });
+    this.filteredTasks$ = af.database.list(path, {
+      query: {
+        orderByChild: 'completed',
+        equalTo: this.filter$
+      }
+    });
 
     this.visibleTasks$ = this.filter$
       .switchMap(filter => filter === null ? this.tasks$ : this.filteredTasks$);
