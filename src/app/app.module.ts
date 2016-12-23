@@ -9,17 +9,21 @@ import { TasksModule } from '../tasks/index';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { AuthModule } from '../auth/index';
-
+import { HeaderComponent } from '../shared/layout/header/header.component';
+import { FooterComponent } from '../shared/layout/footer/footer.component';
+import { TestsComponent } from './tests/tests.component';
+import { routes } from './app.routers';
+import { ViewportService } from '../shared/services/viewport.service';
+import { TaskModalComponent } from '../tasks/components/task-modal/task-modal.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 const fbConfig = {
-
   apiKey: "",
   authDomain: "",
   databaseURL: "",
   storageBucket: "",
   messagingSenderId: ""
-
 };
 
 // const fbAuthConfig = {
@@ -36,18 +40,23 @@ const fbAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    TestsComponent,
+    TaskModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([], { useHash: false }),
+    RouterModule.forRoot(routes),//, { useHash: false }),
     AngularFireModule.initializeApp(fbConfig, fbAuthConfig),
     TasksModule,
     AuthModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot()
   ],
-  providers: [],
+  providers: [ViewportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

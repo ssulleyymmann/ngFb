@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy,ViewEncapsulation, Component, EventEmitter, Inp
 import { ITask } from '../models/task';
 
 
+
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
