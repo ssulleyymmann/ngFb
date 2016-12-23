@@ -1,13 +1,22 @@
-@import 'styles/_normalize';
-@import '../node_modules/blueprint-css/src/blueprint';
-@import 'styles/_config';
-@import 'styles/_colors';
-@import 'styles/_typography';
-@import 'styles/_layout';
-@import 'styles/_nav';
-@import 'styles/components/_loaders';
-@import 'styles/components/_buttons';
-@import 'styles/components/_card';
-@import 'styles/components/_inputs';
-@import '../node_modules/blueprint-css/src/_utility';
-@import 'styles/_sprites';
+@import '~@angular/material/core/theming/all-theme';
+
+// NOTE: Theming is currently experimental and not yet publically released!
+
+@include md-core();
+
+$primary: md-palette($md-deep-purple);
+$accent:  md-palette($md-amber, A200, A100, A400);
+
+$theme: md-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+.m2app-dark {
+  $dark-primary: md-palette($md-pink, 700, 500, 900);
+  $dark-accent:  md-palette($md-blue-grey, A200, A100, A400);
+  $dark-warn:    md-palette($md-deep-orange);
+
+  $dark-theme: md-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+}

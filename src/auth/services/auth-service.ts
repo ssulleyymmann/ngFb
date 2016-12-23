@@ -50,6 +50,7 @@ export class AuthService {
   }
 
   signOut(): void {
+    console.log("*******************,auth");
     this.auth$.logout();
   }
 }
