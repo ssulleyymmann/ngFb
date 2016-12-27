@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, trigger, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AnimationService } from '../../../shared/services/animation.service';
-import { ViewportService } from '../../../shared/services/viewport.service';
+import { AnimationService } from '../../../../src/shared/services/animation.service';
+import { ViewportService } from '../../../../src/shared/services/viewport.service';
 
 
 

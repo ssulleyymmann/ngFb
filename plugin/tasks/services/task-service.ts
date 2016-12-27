@@ -7,7 +7,6 @@ import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { AuthService } from '../../auth';
 import { ITask, Task } from '../models/task';
-//import { AuthService } from '../../auth/services/auth-service';
 
 
 @Injectable()
@@ -17,14 +16,11 @@ export class TaskService {
   private filter$: ReplaySubject<any> = new ReplaySubject(1);
   private filteredTasks$: FirebaseListObservable<ITask[]>;
   private tasks$: FirebaseListObservable<ITask[]>;
-
-
+  private items: any;
+  private itemsSubscription: any;
   constructor(af: AngularFire, auth: AuthService) {
     const path = `/tasks/${auth.id}`;
-    //const path = `/tasks/`;
     this.tasks$ = af.database.list(path);
-    
-   // this.filteredTasks$ = af.database.list(path);
 
     this.filteredTasks$ = af.database.list(path, {
       query: {
@@ -64,5 +60,11 @@ export class TaskService {
 
   updateTask(task: ITask, changes: any): firebase.Promise<any> {
     return this.tasks$.update(task.$key, changes);
+  }
+  destroy() {
+    this.tasks$.subscribe().unsubscribe();
+    this.filter$.subscribe().unsubscribe();
+    this.filteredTasks$.subscribe().unsubscribe();
+    this.visibleTasks$.subscribe().unsubscribe();
   }
 }

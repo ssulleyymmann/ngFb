@@ -1,0 +1,9 @@
+{
+    "applicationName": "ngfb",
+    "version": "0.0.1",
+    "clientId": "40",
+    "channelText": "gg",
+    "dbName": "fb",
+    "environment": "local",
+    "domainLink": ""
+}

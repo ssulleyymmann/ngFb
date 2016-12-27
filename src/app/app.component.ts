@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { AuthService } from '../auth/services/auth-service';
+import { AuthService } from '../../plugin/auth/services/auth-service';
+import { Router } from '@angular/router';
+import { TranslateService } from 'ng2-translate/ng2-translate';
+import { CoreSite } from '../../core/core-site';
+
 
 @Component({
   selector: 'app-root',
@@ -9,29 +12,30 @@ import { AuthService } from '../auth/services/auth-service';
 })
 export class AppComponent {
   title = 'app works!';
-  sidenav:any;
-  items: FirebaseListObservable<any[]>;
-  constructor(public af: AngularFire,private auth: AuthService) {
-    // create a list at /items
-    //this.items = af.database.list('/items');
+  constructor(private auth: AuthService,translate: TranslateService) {
+     translate.setDefaultLang('tr');
+    translate.use('tr');
+    
+
+    
+
+  
   }
+
   signOut(): void {
     this.auth.signOut();
   }
-  login() {
-    this.af.auth.login();
 
-  }
-  getData() {
-    this.items = this.af.database.list('/items');
-    console.log("********", this.items);
-  }
-  setData() {
-    this.items = this.af.database.list('/items');
-    this.items.push("4200")
-  }
-  logout() {
-    this.af.auth.logout();
-  }
- 
 }
+
+// export class AppComponent {
+//   title = 'app works!';
+//   constructor(private auth: AuthService,translate: TranslateService) {
+//      translate.setDefaultLang('tr');
+//     translate.use('tr');
+//   }
+
+//   signOut(): void {
+//     this.auth.signOut();
+//   }
+// }

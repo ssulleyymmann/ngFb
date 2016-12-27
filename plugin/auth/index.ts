@@ -30,7 +30,6 @@ const routes: Routes = [
 
 export class AuthModule {}
 
-
 export { AuthGuard };
 export { AuthService };
 export { UnauthGuard };

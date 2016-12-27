@@ -1,6 +1,8 @@
 <p>
-  tests works!
+  tests works! 
+ {{ 'lang_tr' | translate }}
 </p>
+<div *ngIf="coreSite && coreSite.OPTION">{{ coreSite.OPTION.applicationName}}</div>
 
 <md-card>
   <md-card-title-group>
@@ -9,7 +11,7 @@
     <img md-card-md-image>
   </md-card-title-group>
 </md-card>
-<a [routerLink]="['./', 1]">modal</a>
+<!--<a [routerLink]="['./', 1]">modal</a>-->
 
 
 <md-card>
@@ -115,4 +117,4 @@
 
 
 
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->

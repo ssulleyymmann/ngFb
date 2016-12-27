@@ -9,11 +9,11 @@ import { TaskService } from '../services/task-service';
 
 @Component({
   template: `
+   <a (click)="removelist()">sil</a>
     <div class="g-row">
       <div class="g-col">
         <task-form (createTask)="taskService.createTask($event)"></task-form>
       </div>
-
       <div class="g-col">
         <task-list
           [filter]="filter | async"
@@ -32,5 +32,11 @@ export class TasksComponent {
     this.filter = route.params
       .pluck('completed')
       .do((value: string) => taskService.filterTasks(value));
+  }
+  ngOnDestroy() {
+    this.taskService.destroy();
+  }
+  removelist(){
+     this.taskService.destroy();
   }
 }

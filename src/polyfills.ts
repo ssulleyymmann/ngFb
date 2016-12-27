@@ -17,3 +17,17 @@ import 'core-js/es6/reflect';
 
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
+
+
+
+import 'rxjs/Rx';
+import 'rxjs/Subscription';
+import 'rxjs/Observable';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/fromEventPattern';
+import 'rxjs/add/observable/timer';
+import 'rxjs/add/operator/throttle';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
