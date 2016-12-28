@@ -11,7 +11,7 @@ import { TaskListComponent } from './components/task-list';
 import { TasksComponent } from './components/tasks';
 import { AutoFocusDirective } from './directives/autofocus-directive';
 import { TaskService } from './services/task-service';
-
+import { CoreModule } from '../_core/core-module';
 const routes: Routes = [
   { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] }
 ];
@@ -28,6 +28,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    CoreModule,
     RouterModule.forChild(routes)
   ],
   providers: [

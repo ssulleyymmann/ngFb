@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routers';
-import { CoreModule } from '../../core/core-module';
+import { PluginModule } from '../../plugin/plugin-module';
 @NgModule({
   declarations: [
     AppComponent
   ],
+  exports: [
+  ],
   imports: [
-    CoreModule,
-    RouterModule.forRoot(routes, { useHash: false})
+    PluginModule,
+    RouterModule.forRoot(routes, { useHash: false })
   ],
   bootstrap: [AppComponent]
 })
