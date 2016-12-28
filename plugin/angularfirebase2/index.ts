@@ -3,11 +3,11 @@ import { AngularFireModule, AuthMethods } from 'angularfire2';
 
 
 var fbConfig = {
-    apiKey: "AIzaSyB5ybQVnAyiUgw84t8PBBwRYPPT44wsXaw",
-    authDomain: "ngfb-44987.firebaseapp.com",
-    databaseURL: "https://ngfb-44987.firebaseio.com",
-    storageBucket: "ngfb-44987.appspot.com",
-    messagingSenderId: "498586561793"
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    storageBucket: "",
+    messagingSenderId: ""
 };
 // const fbAuthConfig = {
 //   provider: AuthProviders.Google,
