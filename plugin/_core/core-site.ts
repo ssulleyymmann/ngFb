@@ -1,4 +1,4 @@
-import { Injectable, Injector, ApplicationRef, ReflectiveInjector } from '@angular/core';
+import { Injectable, Injector, ApplicationRef, ReflectiveInjector, ElementRef } from '@angular/core';
 
 // import { MediaListener, Media, media, MEDIA_NAME } from './widgets/ui/utils/media';
 import { Http } from '@angular/http';
@@ -36,7 +36,6 @@ const DEFAULT_OPTIONS: CoreSiteOptions = {
 
 @Injectable()
 export class CoreSite extends CoreService {
-    //private static mtxInjector: ReflectiveInjector;
     private static coreInjector: Injector;
     private static coreInjectorChld: any = {};
     private _mediaKey: string;
@@ -44,7 +43,7 @@ export class CoreSite extends CoreService {
     private _options: CoreSiteOptions;
     private _optionsReq: any;
     // private _mediaListeners: MediaListener[] = [];
-    constructor() {
+    constructor(injector: Injector) {
         super();
 
         //CoreSite.mtxInjector =  ReflectiveInjector.resolveAndCreate([]);
@@ -101,8 +100,13 @@ export class CoreSite extends CoreService {
     }
 
     /* tslint:disable */
-   
-
+    private static appRef: ApplicationRef;
+      public static set CORE_INJECTOR1(appRef: ApplicationRef) {
+        //console.log('s-appRef===============',appRef); 
+        this.appRef = appRef;//<ReflectiveInjector>(injector._view.parentInjector);
+        //this.mtxInjector = <ReflectiveInjector>(injector._view.parentInjector);
+        //console.log('yeeb===============',this.mtxInjector,injector);  
+    }
     public static set CORE_INJECTOR(injector: Injector) {
         //console.log('yeegetyy===============',injector); 
         this.coreInjector = <ReflectiveInjector>injector;//<ReflectiveInjector>(injector._view.parentInjector);
@@ -110,7 +114,15 @@ export class CoreSite extends CoreService {
         //console.log('yeeb===============',this.mtxInjector,injector);  
     }
     /* tslint:enable */
+    public static getComponent<T>(component: any): any {
 
+
+        console.log("**********0000coreInjector",this.coreInjector);
+            console.log("**********0000appRef",this.appRef);
+        var x: ElementRef = this.appRef['_rootComponents'][0].location;
+        console.log("**********0000appRef-x",x);
+ 
+    }
     public static getService<T>(service: any): any {
        
         

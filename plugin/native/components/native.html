@@ -1,0 +1,37 @@
+<md-sidenav-layout [class.m2app-dark]="isDarkTheme">
+    <md-progress-bar mode="indeterminate"></md-progress-bar>
+    <md-sidenav #sidenav mode="over" class="app-sidenav">
+        <md-list>
+            <!--<md-list-item> <button md-button [routerLink]="['/']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">Home</button></md-list-item>
+      <md-list-item> <button md-button [routerLink]="['/tasks']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">/tasks</button></md-list-item>
+      <md-list-item> <button md-button [routerLink]="['/test']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">/tests</button></md-list-item>-->
+        </md-list>
+    </md-sidenav>
+    <md-toolbar color="primary">
+        <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button> ngfb
+        <span class="app-toolbar-filler"></span>
+        <button md-button (click)="isDarkTheme = !isDarkTheme">THEME</button>
+        <button md-button [md-menu-trigger-for]="menu">
+        <md-icon>home</md-icon>
+      </button>
+        <md-menu #menu="mdMenu">
+            <button *ngIf="auth.authenticated" (click)="signOut()" md-menu-item>çıkış yap signOut</button>
+            <button md-menu-item>Lime</button>
+        </md-menu>
+    </md-toolbar>
+
+    <div class="app-content">
+        <p>
+            tests works! {{ 'lang_tr' | translate }}
+        </p>
+        <div *ngIf="coreSite && coreSite.OPTION">{{ coreSite.OPTION.applicationName}}</div>
+        <div #native></div>
+    </div>
+
+</md-sidenav-layout>
+
+<span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <button md-fab><md-icon>check circle</md-icon></button>
+</span>

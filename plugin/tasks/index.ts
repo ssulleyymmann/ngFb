@@ -23,7 +23,7 @@ const routes: Routes = [
     TaskFormComponent,
     TaskItemComponent,
     TaskListComponent,
-    TasksComponent    
+    TasksComponent
   ],
   imports: [
     CommonModule,

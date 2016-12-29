@@ -1,11 +1,11 @@
 <md-sidenav-layout [class.m2app-dark]="isDarkTheme">
   <md-progress-bar mode="indeterminate"></md-progress-bar>
   <md-sidenav #sidenav mode="over" class="app-sidenav">
-    <!--<md-list>
-      <md-list-item> <button md-button [routerLink]="['']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">Home</button></md-list-item>
+    <md-list>
+      <md-list-item> <button md-button [routerLink]="['/']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">Home</button></md-list-item>
       <md-list-item> <button md-button [routerLink]="['/tasks']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">/tasks</button></md-list-item>
-      <md-list-item> <button md-button [routerLink]="['/tests']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">/tests</button></md-list-item>
-    </md-list>-->
+      <md-list-item> <button md-button [routerLink]="['/test']" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">/tests</button></md-list-item>
+    </md-list>
   </md-sidenav>
   <md-toolbar color="primary">
     <button class="app-icon-button" (click)="sidenav.toggle()">

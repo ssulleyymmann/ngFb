@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { TaskService } from '../services/task-service';
+import { coreWd, CoreWidget,Action, Tag } from '../../_widget/widget';
 
 
 @Component({
@@ -40,3 +41,5 @@ export class TasksComponent {
      this.taskService.destroy();
   }
 }
+coreWd.add("Tasks", new CoreWidget(TasksComponent,
+    'TasksComponent_title', 'kotation_descr', [Action.ISFULSCREEN, Action.ISLOCK, Action.ISPROPERTIES], [Tag.ISGLOBAL]));
