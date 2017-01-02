@@ -19,10 +19,8 @@ export class NativeComponent implements OnInit, OnDestroy {
     private _ref: ComponentRef<any>;
     coreSite: CoreSite;
 
-    constructor(private auth: AuthService, translate: TranslateService, private zone: NgZone,// route: ActivatedRoute, router: Router,
+    constructor(private auth: AuthService,private zone: NgZone,// route: ActivatedRoute, router: Router,
         private resolver: ComponentFactoryResolver) {
-        translate.setDefaultLang('tr');
-        translate.use('tr');
         CoreSite.getServiceAsync(CoreSite).then((result) => {
             this.coreSite = result as CoreSite;
         });

@@ -1,7 +1,7 @@
 
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth';
-import { MainComponent } from './components/main';
+import { MainComponent, ScienceJoke, ScienceJoke2 } from './components/main';
 import { MaterialModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { CoreModule } from '../_core/core-module';
@@ -16,7 +16,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    ScienceJoke,
+    ScienceJoke2
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,12 @@ const routes: Routes = [
   exports: [FlexLayoutModule],
   providers: [
 
-  ]
+  ],
+  entryComponents: [
+    ScienceJoke,
+    ScienceJoke2
+
+  ],
 })
 
 export class DashboardModule { }
