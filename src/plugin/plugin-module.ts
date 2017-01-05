@@ -6,8 +6,9 @@ import { AuthModule } from './auth/index';
 import { DashboardModule } from './dashboard/index';
 import { CoreSite } from './_core/core-site';
 import { NativeModule } from './native/index';
-import { CoreComponent } from './_core/core-component';
+
 import {CoreRoutes} from './_core/core-routers'
+import { CoreComponent } from './_core/components/core-component';
 
 @NgModule({
     bootstrap: [CoreComponent],

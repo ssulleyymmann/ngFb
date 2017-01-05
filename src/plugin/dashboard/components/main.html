@@ -1,0 +1,76 @@
+<md-sidenav-layout [class.m2app-dark]="isDarkTheme" fullscreen>
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    Sidenav
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button> Angular Material2 Example App
+
+    <span class="app-toolbar-filler"></span>
+    <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>
+  </md-toolbar>
+
+  <div class="app-content" fxLayout fxFlex>
+    <div fxLayout="column" fxFlex>
+      <div class="flex-item" fxLayout="row" fxFlex="30%" fxFlex.xs="40%">
+        <div fxFlex="50%">c1r1</div>
+        <div fxFlex="50%">c1r2</div>
+      </div>
+      <div class="flex-item" fxLayout="row" fxFlex>
+        <div fxLayout="column" fxFlex>
+          c2r1c1
+          <div fxLayout="row" fxFlex>
+
+            <div>
+              Selected tab index:
+              <md-input type="number" [(ngModel)]="activeTabIndex"></md-input>
+            </div>
+
+            <div class="demo-dynamic-tabs">
+              <md-card>
+                <md-card-title>Add New Tab</md-card-title>
+                <md-card-content>
+                  <md-checkbox [(ngModel)]="createWithLongContent">
+                    Include extra content
+                  </md-checkbox>
+                  <md-checkbox [(ngModel)]="gotoNewTabAfterAdding">
+                    Select after adding
+                  </md-checkbox>
+                  <div>
+                    Position:
+                    <md-input type="number" [(ngModel)]="addTabPosition"></md-input>
+                  </div>
+                  <button md-raised-button color="primary" (click)="addTab(createWithLongContent)">Add</button>
+                </md-card-content>
+              </md-card>
+            </div>
+            <div fxLayout="row" fxFlex>
+              <md-tab-group class="demo-tab-group" [(selectedIndex)]="activeTabIndex" (selectChange)="selectedPortal=activeWidget">
+                <md-tab *ngFor="let tab of dynamicTabs , let i = index" [disabled]="dynamicTabs.length == 1">
+                  <template md-tab-label>
+                    {{tab.label}}
+                    <md-icon (click)="deleteTab(tab)">clear</md-icon>
+                  </template>
+                  <template md-tab-body [cdkPortalHost]="selectedPortal"></template>
+                </md-tab>
+              </md-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="flex-item" fxFlex="25px"> l</div>-->
+    </div>
+
+  </div>
+
+
+
+
+</md-sidenav-layout>
+
+<span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <button md-fab><md-icon>check circle</md-icon></button>
+</span>

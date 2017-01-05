@@ -3,30 +3,30 @@ import { AngularFireModule, AuthMethods } from 'angularfire2';
 
 
 var fbConfig = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    storageBucket: "",
-    messagingSenderId: ""
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  storageBucket: "",
+  messagingSenderId: ""
 };
 // const fbAuthConfig = {
 //   provider: AuthProviders.Google,
 //   method: AuthMethods.Redirect
 // }
 const fbAuthConfig = {
-    method: AuthMethods.Popup,
-    remember: 'default'
+  method: AuthMethods.Popup,
+  remember: 'default'
 };
 @NgModule({
   declarations: [
-   
+
   ],
   imports: [
     AngularFireModule.initializeApp(fbConfig, fbAuthConfig),
   ],
   providers: [
-   
+
   ]
 })
 
-export class AngularFirebase2Module {}
+export class AngularFirebase2Module { }
