@@ -48,7 +48,8 @@
               </md-card>
             </div>
             <div fxLayout="row" fxFlex>
-              <md-tab-group class="demo-tab-group" [(selectedIndex)]="activeTabIndex" (selectChange)="selectedPortal=activeWidget">
+              <md-tab-group class="demo-tab-group" [(selectedIndex)]="activeTabIndex" 
+                (selectChange)="selectedPortal=activeWidget">
                 <md-tab *ngFor="let tab of dynamicTabs , let i = index" [disabled]="dynamicTabs.length == 1">
                   <template md-tab-label>
                     {{tab.label}}
@@ -63,7 +64,6 @@
       </div>
       <!--<div class="flex-item" fxFlex="25px"> l</div>-->
     </div>
-
   </div>
 
 

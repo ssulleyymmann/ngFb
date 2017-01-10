@@ -13,6 +13,9 @@ export class AuthService {
     });
   }
 
+  get authAuthState():any {
+    return this.authState ? this.authState:null ;
+  }
   get authenticated(): boolean {
     return this.authState !== null;
   }

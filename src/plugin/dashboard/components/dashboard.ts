@@ -10,12 +10,12 @@ import { CoreSite } from '../../_core/core-site';
 
 
 @Component({
-  selector: 'main',
-  templateUrl: './main.html',
-  styleUrls: ['./main.scss'],
+  selector: 'dashboard',
+  templateUrl: './dashboard.html',
+  styleUrls: ['./dashboard.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class MainComponent {
+export class DashboardComponent {
   selectedPortal: Portal<any>;
 
   get activeWidget() {

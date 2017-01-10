@@ -36,6 +36,25 @@ TEST!!!!
   <button md-fab><md-icon>check circle</md-icon></button>
 </span>
 
+ <!--<button *ngIf="auth.authenticated"  md-menu-item>{{auth.authenticated}}çıkış yap signOut</button>
+  <button *ngIf="auth.authAuthStateGoogle"  md-menu-item>{{auth.authAuthStateGoogle.displayName}}çıkış yap signOut</button>-->
+<!--<md-card>{{email}}</md-card>-->
+<div fxFlex>
+  <md-card *ngIf="auth.authAuthState && auth.authAuthState.google">
+    <md-card-title-group>
+        <md-card-title>{{auth.authAuthState.google.displayName}}</md-card-title>
+        <md-card-subtitle>{{auth.authAuthState.google.email}}</md-card-subtitle>
+        <md-card-subtitle>{{auth.authAuthState.google.providerId}}+{{auth.authAuthState.google.uid}}</md-card-subtitle>
+        <img md-card-image src="{{auth.authAuthState.google.photoURL}}">
+    </md-card-title-group>
+  </md-card>
+</div>
+<!--<md-card *ngIf="auth.authAuthStateGoogle">{{auth.authAuthStateGoogle.displayName}}</md-card>
+<md-card *ngIf="auth.authAuthStateGoogle">{{auth.authAuthStateGoogle.email}}</md-card>
+<md-card *ngIf="auth.authAuthStateGoogle">{{auth.authAuthStateGoogle.photoURL}}</md-card>
+<md-card *ngIf="auth.authAuthStateGoogle">{{auth.authAuthStateGoogle.providerId}}</md-card>
+<md-card *ngIf="auth.authAuthStateGoogle">{{auth.authAuthStateGoogle.uid}}</md-card>-->
+
 <footer>
 	<a href="https://github.com/ssulleyymmann/ngfb">Open Source</a> built by <a href="http://blog.suleymanaydin.com/">Süleyman Aydın</a>
 </footer>
